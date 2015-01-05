@@ -1,0 +1,33 @@
+DIAGRAM test;BEGIN
+ENT I{
+	ATTR Consciousness;
+	ATTR "Knowledge" DERIVED;
+	ATTR self KEY;
+}
+
+ENT God{
+	ATTR "Everything" KEY COMPOSITE{
+		ATTR Universe;
+		ATTR I KEY;
+	}
+	ATTR Reality;
+}
+
+RELN Conceived 
+	FROM{
+		CONNECT I MANY;
+	}
+	TO{
+		CONNECT God ONE;
+	};
+
+RELN Created
+	FROM{
+		CONNECT God ONE;
+	}
+	TO{
+		CONNECT I MANY;
+	};
+
+END
+

@@ -1,0 +1,4 @@
+graph G{ nodesep=0.5; ordering=out; splines=ortho; label="test
+"; node[fontsize=14, fontname="Consolas"];
+edge[fontsize=14, fontname="Consolas"];
+}
