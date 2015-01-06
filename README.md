@@ -26,21 +26,21 @@ in the ER Markup Language to Graphviz dot language.
 GRAMMAR SPECIFICATIONS
 ----------------------
 
-<pre>*PROGRAM* -> DIAGRAM name; BEGIN *(ENTITY+RELATION)+* END
+<pre>PROGRAM -> DIAGRAM name; BEGIN (ENTITY+RELATION)+ END
 
-*ENTITY* -> ENT name [WEAK] ;
-			| ENT name [WEAK] { *ATTRIBUTE*\* } 
+ENTITY -> ENT name [WEAK] ;
+			| ENT name [WEAK] { ATTRIBUTE* } 
 			
-*ATTRIBUTE* -> ATTR name *(TAG)*\* ;
-			| ATTR name COMPOSITE { *ATTRIBUTE*\* }
+ATTRIBUTE -> ATTR name (TAG)* ;
+			| ATTR name COMPOSITE { ATTRIBUTE* }
 			
-*RELATION* -> RELN name [WEAK] FROM { *EDGE*+ } TO { *EDGE*+ } ;
+RELATION -> RELN name [WEAK] FROM { EDGE+ } TO { EDGE+ } ;
 
-*EDGE* -> CONNECT name *EDGETYPE*\* ;
+EDGE -> CONNECT name EDGETYPE* ;
 
-*TAG* -> WEAK | MULTI | KEY | DERIVED 
+TAG -> WEAK | MULTI | KEY | DERIVED 
 
-*EDGETYPE* -> PARTIAL | TOTAL | ONE | MANY </pre>
+EDGETYPE -> PARTIAL | TOTAL | ONE | MANY </pre>
 
 
 **comments start with #**
