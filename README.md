@@ -26,7 +26,7 @@ in the ER Markup Language to Graphviz dot language.
 GRAMMAR SPECIFICATIONS
 ----------------------
 
-```*PROGRAM* -> DIAGRAM name; BEGIN *(ENTITY+RELATION)+* END
+<pre>*PROGRAM* -> DIAGRAM name; BEGIN *(ENTITY+RELATION)+* END
 
 *ENTITY* -> ENT name [WEAK] ;
 			| ENT name [WEAK] { *ATTRIBUTE*\* } 
@@ -40,7 +40,7 @@ GRAMMAR SPECIFICATIONS
 
 *TAG* -> WEAK | MULTI | KEY | DERIVED 
 
-*EDGETYPE* -> PARTIAL | TOTAL | ONE | MANY ```
+*EDGETYPE* -> PARTIAL | TOTAL | ONE | MANY </pre>
 
 
 **comments start with #**
@@ -59,7 +59,7 @@ For best results, render this Dot file with Graphviz fdp engine.
 EXAMPLE
 -------
 
-```# Test code in ER Markup Language
+<pre># Test code in ER Markup Language
 DIAGRAM test;
 BEGIN
 ENT I{
@@ -99,6 +99,6 @@ ENT Software{
 
 RELN Write FROM { CONNECT I ONE; } TO { CONNECT Software MANY; };
 
-END```
+END</pre>
 
 
