@@ -15,6 +15,10 @@ struct Attribute{
 	void printDot(ofstream &fout, int parent);
 
 	Attribute():node_no_(nodeCounter++){}
+	void destruct(){
+		vector<AttrType>().swap(type_);
+		vector<Attribute>().swap(attr_);
+	}
 };
 
 struct Entity{
@@ -47,7 +51,7 @@ struct Relation{
 	int node_no_;
 	void printDot(ofstream &fout);
 	
-	Relation():node_no_(nodeCounter++){}
+	Relation():node_no_(nodeCounter++){weak_=false;}
 };
 
 struct ER_Diagram{

@@ -86,6 +86,7 @@ bool Tokenizer::getNextToken(){
 	else if(isalpha(*prog_)){
 		while(isalpha(*prog_)||*prog_=='_')
 			readChar(temp, prog_);
+		*temp = '\0';
 		if(isKey(token_)) type_ = KEYWORD;
 		else type_ = NAME;
 	}

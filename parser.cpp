@@ -18,6 +18,7 @@ void Parser::parseEnt(){
 	if(t.type_==NAME)strcpy(ent_.name_, t.token_.name_);
 	else error("Invalid naming of the Entity");
 
+
 	if(entTbl_.table_.count(ent_.name_)!=0)
 		error("entity with same name already defined");
 	
@@ -35,7 +36,9 @@ void Parser::parseEnt(){
 	else if(t.type_ == OPERATOR && t.token_.op_ == SEMICOLON);
 	else error("expected SEMICOLON(;) or a list of Attributes");
 
-	entTbl_.table_[ent_.name_] = ent_;
+	entTbl_.insert(ent_.name_, ent_);
+//	entTbl_.table_.insert(make_pair<const char*, Entity>(ent_.name_, ent_));
+	DEBUG(cout<<"DEBUG::"<<ent_.name_<<" inserted"<<endl;)
 	return;
 }
 	
@@ -48,6 +51,7 @@ void Parser::parseEntAttr(Entity &ent){
 		while(t.type_==KEYWORD && t.token_.kw_==ATTR){
 			parseAttr(a);
 			ent.attr_.push_back(a);
+			a.destruct();
 			check = lex_.next(t);
 			if(!check) error("incomplete description of ER Diagram");
 		}
@@ -114,6 +118,7 @@ void Parser::parseAttrAttr(Attribute &ent){
 		while(t.type_==KEYWORD && t.token_.kw_==ATTR){
 			parseAttr(a);
 			ent.attr_.push_back(a);
+			a.destruct();
 			check = lex_.next(t);
 			if(!check) error("incomplete description of ER Diagram");
 		}

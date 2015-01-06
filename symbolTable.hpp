@@ -6,7 +6,12 @@
 
 class EntityTable{
 	public:
-		map<const char *, Entity> table_;
+		map<string, Entity> table_;
+
+		inline void insert(const char *name, Entity ent){
+			string n(name);
+			table_.insert(make_pair<string,Entity>(n,ent));
+		}
 };
 
 #endif

@@ -1,0 +1,5 @@
+*.erd
+*.dot
+*.png
+*.difference
+erdcc

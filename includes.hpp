@@ -19,7 +19,7 @@ extern int nodeCounter;
 
 extern void error(const char *msg);
 
-#define _DEBUG
+//#define _DEBUG
 
 #ifdef _DEBUG
 #define DEBUG(...) __VA_ARGS__

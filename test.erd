@@ -13,21 +13,29 @@ ENT God{
 	ATTR Reality;
 }
 
-RELN Conceived 
-	FROM{
-		CONNECT I MANY;
-	}
-	TO{
-		CONNECT God ONE;
-	};
+RELN Conceived 	FROM{ CONNECT I MANY; }	TO { CONNECT God ONE; };
+RELN Created FROM{ CONNECT God ONE; } TO { CONNECT I MANY; };
 
-RELN Created
-	FROM{
-		CONNECT God ONE;
-	}
-	TO{
-		CONNECT I MANY;
-	};
+ENT Book{
+	ATTR Name;
+	ATTR ISBN KEY;
+	ATTR Price;
+	ATTR Author MULTI;
+}
+
+RELN Write FROM { CONNECT I MANY; } TO { CONNECT Book MANY; };
+RELN Read FROM { CONNECT I MANY; } TO { CONNECT Book MANY; };
+
+ENT Software{
+	ATTR Name;
+	ATTR "Written in (Language)" MULTI;
+	ATTR "Interface CLI/TUI/GUI" MULTI;
+	ATTR Bugs MULTI;
+	ATTR Programmer MULTI;
+}
+
+RELN Write FROM { CONNECT I ONE; } TO { CONNECT Software MANY; };
+
 
 END
 
