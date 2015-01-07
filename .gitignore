@@ -3,3 +3,5 @@
 *.png
 *.difference
 erdcc
+*.md
+.gitignore

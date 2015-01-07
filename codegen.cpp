@@ -7,7 +7,7 @@ void Parser::generateCode(const char *outFileName){
 	ofstream fout;
 	fout.open(outFileName);
 
-	fout<<"graph G{nodesep=2;ranksep=1;K=1.5;maxiter=10000;"
+	fout<<"graph G{nodesep=1.5;ranksep=1;K=0.5;maxiter=1000000;"
 		<<"ordering=out;splines=false; label=\""<<diagram_.name_
 		<<"\"; node[fontsize=14, fontname=\"Consolas\"];"<<endl
 		<<"edge[fontsize=14, fontname=\"Consolas\"];"<<endl;
@@ -81,7 +81,8 @@ void Relation::printDot(ofstream &fout){
 	sstream nodeName("node_");
 	nodeName<<node_no_;
 
-	fout<<nodeName.str()<<"[shape=diamond,regular=1,"<<(weak_?"peripheries=2,":"")
+	fout<<nodeName.str()<<"[shape=diamond,regular=1,"
+		<<(weak_?"peripheries=2,":"")
 		<<"label=\""<<name_<<"\"];"<<endl;
 
 	for(size_t i=0; i<from_.size(); ++i)
@@ -99,7 +100,13 @@ void Edge::printDot(ofstream &fout, int parent){
 
 	parName<<parent;
 	string n(ent_);
-	nodeName<<entTbl_.table_[n].node_no_;
+	if(entTbl_.table_.count(n)==1)
+		nodeName<<entTbl_.table_[n].node_no_;
+	else{
+		cout<<"CODE GENERATOR ERROR : Entity "<<ent_
+			<<" not defined but used"<<endl;
+		return;
+	}
 
 	fout<<nodeName.str()<<"--"<<parName.str();
 	if(weak_){

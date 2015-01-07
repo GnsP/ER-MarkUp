@@ -1,4 +1,5 @@
-DIAGRAM test;BEGIN
+DIAGRAM test;
+BEGIN
 ENT I{
 	ATTR Consciousness;
 	ATTR "Knowledge" DERIVED;
@@ -35,7 +36,6 @@ ENT Software{
 }
 
 RELN Write FROM { CONNECT I ONE; } TO { CONNECT Software MANY; };
-
 
 END
 
