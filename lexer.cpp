@@ -1,3 +1,25 @@
+
+/**
+	RIGHT TO USE, DISTRIBUTE AND MODIFY
+	===================================
+
+	Copyright (C) 2015 Ganesh Prasad Sahoo - All Rights Reserved
+
+	You may use, distribute and modify this code under the Terms 
+	of GNU GPL V3 License. You should have received a copy of the
+	GNU GPL v3 License with this file. If not please write to
+		
+		sir.gnsp@gmail.com
+
+	or visit 
+	
+		http://www.gnu.org/licenses/gpl.txt
+
+
+*****************************************************************************
+*/
+
+
 #include "lexer.hpp"
 using namespace std;
 

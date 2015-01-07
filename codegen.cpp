@@ -1,8 +1,54 @@
+/**
+	RIGHT TO USE, DISTRIBUTE AND MODIFY
+	===================================
+
+	Copyright (C) 2015 Ganesh Prasad Sahoo - All Rights Reserved
+
+	You may use, distribute and modify this code under the Terms 
+	of GNU GPL V3 License. You should have received a copy of the
+	GNU GPL v3 License with this file. If not please write to
+		
+		sir.gnsp@gmail.com
+
+	or visit 
+	
+		http://www.gnu.org/licenses/gpl.txt
+
+
+*****************************************************************************
+
+
+	DOCUMENTATION
+	=============
+
+	This file contains functions that generate code in Graphviz Dot 
+	syntax from the ER Diagram represented in memory. The structure 
+	of the representation is described and implemented in structure.hpp .
+
+	The headfile where the void generateCode(const char *outFileName) is
+	declared in parser.hpp . This function is a method of the Parser class.
+
+
+	Important Points
+	----------------
+	1. 	All nodes of the graph are named as 'node_X' where X is an unique 
+		integer. Each unique node has a 32 bit node_no_ associated with it.
+
+	2. 	The code generated is Dot language is targetted towards the Graphviz
+		fdp and sfdp engines. The optimal layout of the diagram is possible
+		while using the above mentioned engines only.
+
+*/
+
+
 #include "parser.hpp"
 using namespace std;
 
+// For keeping track of numbering/naming of nodes in the generated code.
 int nodeCounter=1;
 
+
+// 
 void Parser::generateCode(const char *outFileName){
 	ofstream fout;
 	fout.open(outFileName);
