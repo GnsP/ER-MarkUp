@@ -18,10 +18,11 @@ void Parser::parseEnt(){
 	if(t.type_==NAME)strcpy(ent_.name_, t.token_.name_);
 	else error("Invalid naming of the Entity");
 
-
-	if(entTbl_.table_.count(ent_.name_)!=0)
-		error("entity with same name already defined");
 	
+	if(entTbl_.table_.count(ent_.name_)!=0)
+	error("entity with same name already defined");
+	
+	ent_.weak_ = false;
 	check = lex_.next(t);
 	if(!check) error("incomplete description of ER Diagram");
 	if(t.type_== KEYWORD && t.token_.kw_ == WEAK ){
