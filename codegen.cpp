@@ -53,8 +53,8 @@ void Parser::generateCode(const char *outFileName){
 	ofstream fout;
 	fout.open(outFileName);
 
-	fout<<"graph G{nodesep=1.5;ranksep=1;K=0.5;maxiter=1000000;"
-		<<"ordering=out;splines=false; label=\""<<diagram_.name_
+	fout<<"graph G{maxiter=1000000;overlap=scale;"
+		<<"ordering=out;splines=true; label=\""<<diagram_.name_
 		<<"\"; node[fontsize=14, fontname=\"Consolas\"];"<<endl
 		<<"edge[fontsize=14, fontname=\"Consolas\"];"<<endl;
 	
